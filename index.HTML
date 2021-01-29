@@ -18,7 +18,12 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
-
+        function Scoreboard(props){
+            console.log(props.stats, "scoreboard")
+            return(
+                <div className="Scoreboard">Home: {props.stats.home.score} |  Visiting: {props.stats.visiting.score}</div>
+            )
+        }
         function Team(props){
             return (
                 <div>
@@ -69,6 +74,7 @@
                 return (
                 <div>
                     <p className="test">Welcome to {this.props.venue}</p>
+                    <Scoreboard stats={this.state}/>
                     <Team name="Wolves" logo="./media/Wolves.jpg" stats={this.state.home} shootBall={() => this.shootBall('home')} />
                     <Team name="Bees" logo="./media/Bees.jpg" stats={this.state.visiting} shootBall={() => this.shootBall('visiting')} />
                 </div>
@@ -85,6 +91,7 @@
             return(
                 <div>
                 <Game venue="Grand Central stadium"/>
+                <Game venue="other for testing"/>
                 </div>
             )
         }
